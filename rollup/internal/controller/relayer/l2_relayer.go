@@ -344,7 +344,7 @@ func (r *Layer2Relayer) ProcessGasPriceOracle() {
 			expectedDelta = 1
 		}
 
-		// last is undefine or (suggestGasPriceUint64 >= minGasPrice && exceed diff)
+		// last is undefined or (suggestGasPriceUint64 >= minGasPrice && exceed diff)
 		if r.lastGasPrice == 0 || (suggestGasPriceUint64 >= r.minGasPrice &&
 			(math.Abs(float64(suggestGasPriceUint64)-float64(r.lastGasPrice)) >= float64(expectedDelta))) {
 			data, err := r.l2GasOracleABI.Pack("setL2BaseFee", suggestGasPrice)
